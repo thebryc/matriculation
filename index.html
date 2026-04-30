@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matriculation Timeline · BRYC 2026–2027</title>
+<title>Matriculation · BRYC 2026–2027</title>
 <link rel="stylesheet" href="https://use.typekit.net/oyd0hvb.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,12 +103,9 @@ body{font-family:'proxima-nova','DM Sans',sans-serif;background:var(--gray-50);c
 <nav class="bryc-nav">
   <a href="index.html" class="bryc-nav-logo">
     <img src="Dev_Green_Circle_Logo.png" alt="BRYC" style="width:36px;height:36px;">
-    <span class="bryc-nav-site">Leadership Planning <span class="bryc-nav-year">· 2026–2027</span></span>
+    <span class="bryc-nav-site">BRYC Matriculation <span class="bryc-nav-year">· 2026–2027</span></span>
   </a>
   <div class="bryc-nav-links">
-    <a href="index.html" class="bryc-nav-link">Home</a>
-    <a href="org-chart.html" class="bryc-nav-link">Org Chart</a>
-    <a href="staffing.html" class="bryc-nav-link">Staffing Scenarios</a>
     <a href="fellow-journey.html" class="bryc-nav-link">Fellow Journey</a>
     <a href="matriculation.html" class="bryc-nav-link active">Matriculation</a>
   </div>
@@ -526,7 +523,7 @@ body { padding-bottom: 52px; }
 <script>
 // ── Config ──────────────────────────────────────────────────
 // REPLACE THIS with your deployed Google Apps Script URL
-const SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXBle_pbQNumoJGchmAwGtlwj1TbBhJhpwzkBLqc48hePX2POcHY0daKESulLL98ns/exec';
 
 let currentLi = null;
 let edits = {}; // { bulletId: { text, initials, timestamp } }
@@ -610,7 +607,7 @@ async function saveEdit() {
 
   setStatus('Saving…');
 
-  if (SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxXBle_pbQNumoJGchmAwGtlwj1TbBhJhpwzkBLqc48hePX2POcHY0daKESulLL98ns/exec') {
+  if (SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
     setStatus('✓ Edit saved locally (set up backend to sync across devices)');
     return;
   }
