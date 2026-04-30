@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matriculation Timeline · BRYC 2026–2027</title>
+<link rel="stylesheet" href="https://use.typekit.net/oyd0hvb.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:#0a0a0a; --white:#fff; --green:#1B4332; --gold:#B8860B;
+  --gray-50:#f9fafb; --gray-100:#f3f4f6; --gray-200:#e5e7eb;
+  --gray-400:#9ca3af; --gray-500:#6b7280; --gray-600:#4b5563;
+
+  /* Owner colors */
+  --forrest:#dc2626;   /* red */
+  --chasity:#ea580c;   /* orange */
+  --angela:#db2777;    /* pink */
+  --marcus:#2563eb;    /* blue */
+  --jakia:#7c3aed;     /* purple */
+  --all:#16a34a;       /* green */
+  --hub:#0891b2;       /* cyan */
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'proxima-nova','DM Sans',sans-serif;background:var(--gray-50);color:var(--black);line-height:1.5;}
+
+/* Nav */
+.bryc-nav{background:var(--black);padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;border-bottom:1px solid #1f2937;}
+.bryc-nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.bryc-nav-site{font-family:'proxima-nova','DM Sans',sans-serif;font-size:14px;font-weight:600;color:white;}
+.bryc-nav-year{color:var(--gray-400);font-weight:400;}
+.bryc-nav-links{display:flex;align-items:center;gap:4px;}
+.bryc-nav-link{font-family:'proxima-nova','DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--gray-400);text-decoration:none;padding:6px 14px;border-radius:6px;transition:all .15s;}
+.bryc-nav-link:hover{color:white;background:#1f2937;}
+.bryc-nav-link.active{color:white;background:var(--green);}
+
+/* Page */
+.page-wrap{max-width:1100px;margin:0 auto;padding:48px 40px 100px;}
+.page-eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:10px;}
+.page-title{font-size:32px;font-weight:700;margin-bottom:6px;}
+.page-subtitle{font-size:15px;color:var(--gray-500);font-weight:300;margin-bottom:40px;max-width:600px;}
+
+/* Owner legend */
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;}
+.leg{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-600);background:white;border:1px solid var(--gray-200);border-radius:20px;padding:4px 10px;}
+.leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+
+/* Timeline */
+.timeline{position:relative;padding-left:0;}
+
+/* Phase label */
+.phase-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin:36px 0 16px;display:flex;align-items:center;gap:12px;}
+.phase-label::after{content:'';flex:1;height:1px;background:var(--gray-200);}
+
+/* Each event card */
+.event{display:flex;gap:0;margin-bottom:20px;position:relative;}
+
+/* Date column */
+.event-date{flex:0 0 160px;padding-right:24px;text-align:right;}
+.event-date-main{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--black);}
+.event-date-sub{font-size:11px;color:var(--gray-400);margin-top:2px;}
+
+/* Connector */
+.event-connector{flex:0 0 32px;display:flex;flex-direction:column;align-items:center;position:relative;}
+.event-dot{width:12px;height:12px;border-radius:50%;border:2px solid white;flex-shrink:0;margin-top:4px;z-index:1;position:relative;}
+.event-line{width:2px;background:var(--gray-200);flex:1;margin-top:4px;}
+
+/* Card */
+.event-card{flex:1;background:white;border:1px solid var(--gray-200);border-radius:10px;padding:18px 20px;margin-bottom:0;}
+.event-card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px;}
+.event-title{font-size:15px;font-weight:700;color:var(--black);line-height:1.3;}
+.event-owners{display:flex;flex-wrap:wrap;gap:5px;flex-shrink:0;}
+.owner-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:12px;color:white;white-space:nowrap;}
+.event-bullets{list-style:none;margin-top:6px;}
+.event-bullets li{font-size:13px;color:var(--gray-600);padding:4px 0 4px 16px;position:relative;line-height:1.55;border-bottom:1px solid var(--gray-100);}
+.event-bullets li:last-child{border-bottom:none;}
+.event-bullets li::before{content:'→';position:absolute;left:0;color:var(--green);font-size:11px;top:6px;}
+.event-note{font-size:12px;color:var(--gray-500);font-style:italic;margin-top:8px;padding-top:8px;border-top:1px solid var(--gray-100);}
+
+/* Ongoing section */
+.ongoing-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+.ongoing-card{background:white;border:1px solid var(--gray-200);border-radius:8px;padding:16px 18px;}
+.ongoing-card-head{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.ongoing-card-title{font-size:13px;font-weight:700;color:var(--black);}
+.ongoing-bullets{list-style:none;}
+.ongoing-bullets li{font-size:12px;color:var(--gray-600);padding:3px 0 3px 14px;position:relative;line-height:1.5;}
+.ongoing-bullets li::before{content:'·';position:absolute;left:3px;color:var(--green);font-weight:700;}
+
+/* Hub section */
+.hub-section{background:var(--black);border-radius:12px;padding:28px 32px;margin-top:48px;}
+.hub-title{font-size:18px;font-weight:700;color:white;margin-bottom:6px;}
+.hub-sub{font-size:13px;color:var(--gray-400);margin-bottom:20px;}
+.hub-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.hub-item{background:#1f2937;border-radius:6px;padding:12px 14px;}
+.hub-item-title{font-size:12px;font-weight:700;color:var(--hub);margin-bottom:4px;}
+.hub-item-text{font-size:12px;color:var(--gray-400);line-height:1.55;}
+</style>
+</head>
+<body>
+
+<nav class="bryc-nav">
+  <a href="index.html" class="bryc-nav-logo">
+    <img src="Dev_Green_Circle_Logo.png" alt="BRYC" style="width:36px;height:36px;">
+    <span class="bryc-nav-site">Leadership Planning <span class="bryc-nav-year">· 2026–2027</span></span>
+  </a>
+  <div class="bryc-nav-links">
+    <a href="index.html" class="bryc-nav-link">Home</a>
+    <a href="org-chart.html" class="bryc-nav-link">Org Chart</a>
+    <a href="staffing.html" class="bryc-nav-link">Staffing Scenarios</a>
+    <a href="fellow-journey.html" class="bryc-nav-link">Fellow Journey</a>
+    <a href="matriculation.html" class="bryc-nav-link active">Matriculation</a>
+  </div>
+</nav>
+
+<div class="page-wrap">
+  <p class="page-eyebrow">Planning · Internal</p>
+  <h1 class="page-title">Matriculation Timeline</h1>
+  <p class="page-subtitle">The full arc from application deadline through orientation — who does what, and when. Two tracks: Seniors (April–June) and 8th–11th Fellows (June–August).</p>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="leg"><div class="leg-dot" style="background:var(--forrest)"></div>Forrest</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--jakia)"></div>Jakia / Senior Team</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--chasity)"></div>Chasity</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--angela)"></div>Angela</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--marcus)"></div>Marcus</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--all)"></div>All / Org-wide</div>
+  </div>
+
+  <div class="timeline">
+
+    <!-- ─── SENIORS TRACK ─── -->
+    <div class="phase-label">Senior Track</div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">April 30</div><div class="event-date-sub">Hard deadline</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--forrest);border-color:var(--forrest);width:16px;height:16px;"></div><div class="event-line"></div></div>
+      <div class="event-card">
+        <div class="event-card-header"><div class="event-title">Senior Application Deadline</div><div class="event-owners"><span class="owner-tag" style="background:var(--forrest);">Forrest</span></div></div>
+        <div class="event-note">Applications close. Forrest begins review and notification process.</div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">~2 Weeks After</div><div class="event-date-sub">~May 14</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--forrest);"></div><div class="event-line"></div></div>
+      <div class="event-card">
+        <div class="event-card-header"><div class="event-title">All New Seniors Notified of Acceptance</div><div class="event-owners"><span class="owner-tag" style="background:var(--forrest);">Forrest</span></div></div>
+        <ul class="event-bullets">
+          <li>Accepted seniors directed to <a href="https://thebryc.github.io/newfellows/" target="_blank" style="color:var(--green);font-weight:600;">thebryc.github.io/newfellows/</a> — they look up their name, see required forms, and get a clear "what happens next" overview</li>
+          <li>They complete their intake form and BRYC Matriculation Form (both student and guardian must sign)</li>
+          <li>Seniors also complete the Senior Intake Form (postsecondary planning info)</li>
+          <li>Forrest notifies Jakia and the Senior Team that all acceptances have been sent</li>
+          <li>Over-income families receive separate communication from Forrest about when, how, and whether they need to pay</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">~2 Weeks After</div><div class="event-date-sub">~May 28</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--jakia);"></div><div class="event-line"></div></div>
+      <div class="event-card">
+        <div class="event-card-header"><div class="event-title">Jakia Sends Senior Welcome Email</div><div class="event-owners"><span class="owner-tag" style="background:var(--jakia);">Jakia / Senior Team</span></div></div>
+        <ul class="event-bullets">
+          <li>Warm welcome — we're excited to have you in your senior year at BRYC</li>
+          <li>Level of communication they can expect from the Senior Team over the summer</li>
+          <li>Orientation date range (specific date TBD — watch your inbox)</li>
+          <li>Senior StartUp Week date</li>
+          <li>Reminder: reach out immediately if you change schools</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">Mid-May</div><div class="event-date-sub">Returning Fellows</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--all);"></div><div class="event-line"></div></div>
+      <div class="event-card">
+        <div class="event-card-header"><div class="event-title">All Returning Fellows Communication</div><div class="event-owners"><span class="owner-tag" style="background:var(--all);">Org-wide</span></div></div>
+        <ul class="event-bullets">
+          <li>Orientation date range (specific details TBD)</li>
+          <li>Program day schedule and transportation info will be shared before orientation</li>
+          <li>Start dates — Senior StartUp and everyone's first program day</li>
+          <li>Photo(s) from Block Party</li>
+          <li>Any exciting data highlights from the end-of-year survey</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ─── 8TH–11TH TRACK ─── -->
+    <div class="phase-label" style="margin-top:48px;">8th–11th Grade Track</div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">June 1</div><div class="event-date-sub">Hard deadline</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--forrest);border-color:var(--forrest);width:16px;height:16px;"></div><div class="event-line"></div></div>
+      <div class="event-card">
+        <div class="event-card-header"><div class="event-title">8th–11th Grade Application Deadline</div><div class="event-owners"><span class="owner-tag" style="background:var(--forrest);">Forrest</span></div></div>
+        <div class="event-note">Applications close. Forrest begins review and notification process.</div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">~2 Weeks After</div><div class="event-date-sub">~June 14</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--forrest);"></div><div class="event-line"></div></div>
+      <div class="event-card">
+        <div class="event-card-header"><div class="event-title">All New Fellows Notified of Acceptance</div><div class="event-owners"><span class="owner-tag" style="background:var(--forrest);">Forrest</span></div></div>
+        <ul class="event-bullets">
+          <li>Accepted Fellows directed to <a href="https://thebryc.github.io/newfellows/" target="_blank" style="color:var(--green);font-weight:600;">thebryc.github.io/newfellows/</a> to look up their name, complete required forms, and see what's next</li>
+          <li>They complete their intake form and BRYC Matriculation Form (student + guardian signature)</li>
+          <li>Forrest notifies Chasity that all acceptances have been sent</li>
+          <li>Over-income families receive separate communication from Forrest about payment</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">~2 Weeks After</div><div class="event-date-sub">~June 28</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--chasity);"></div><div class="event-line"></div></div>
+      <div class="event-card">
+        <div class="event-card-header"><div class="event-title">Chasity Sends 8th–11th Welcome Email</div><div class="event-owners"><span class="owner-tag" style="background:var(--chasity);">Chasity</span></div></div>
+        <ul class="event-bullets">
+          <li>Warm welcome — excited to have you in the BRYC family</li>
+          <li>Level of communication Fellows and families can expect from BRYC over the summer (e.g., PMs will send a personal welcome; Angela may send a community event invite)</li>
+          <li>Orientation date range (specific details TBD — watch your inbox)</li>
+          <li>Reminder: reach out immediately if you change schools</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ─── BY JUNE 1 ─── -->
+    <div class="phase-label" style="margin-top:48px;">By June 1</div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">By June 1</div><div class="event-date-sub">Elin or Myeisha</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--all);"></div><div class="event-line"></div></div>
+      <div class="event-card">
+        <div class="event-card-header">
+          <div class="event-title">Mailchimp Cleanup — PY26 → Alumni</div>
+          <div class="event-owners"><span class="owner-tag" style="background:var(--all);">Elin / Myeisha</span></div>
+        </div>
+        <ul class="event-bullets">
+          <li>Purge PY26 families from active Fellow lists in Mailchimp</li>
+          <li>Move Class of 2026 Fellows into the Alumni audience in Mailchimp</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">By June 1</div><div class="event-date-sub">Alexis</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--alumni,#7c3aed);"></div><div class="event-line"></div></div>
+      <div class="event-card">
+        <div class="event-card-header">
+          <div class="event-title">Add Class of 2026 to Alumni Sheet & Check In</div>
+          <div class="event-owners"><span class="owner-tag" style="background:#7c3aed;">Alexis</span></div>
+        </div>
+        <ul class="event-bullets">
+          <li>Add Class of 2026 graduates to the updated alumni sheet</li>
+          <li>Send a touchpoint to the new class — welcome them to alumni status, check in on how they're doing, and begin the Persistence relationship</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ─── SUMMER ─── -->
+    <div class="phase-label" style="margin-top:48px;">Summer</div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">Summer</div><div class="event-date-sub">Light touch</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--angela);"></div><div class="event-line"></div></div>
+      <div class="event-card">
+        <div class="event-card-header"><div class="event-title">Summer Warmth Notes</div><div class="event-owners"><span class="owner-tag" style="background:var(--angela);">Angela</span><span class="owner-tag" style="background:var(--chasity);">PMs</span></div></div>
+        <ul class="event-bullets">
+          <li>Light-touch outreach — "we look forward to seeing you" energy, not heavy programming</li>
+          <li>PMs may send a personal welcome note to their incoming cohort Fellows</li>
+          <li>Angela may send a community event invite for any summer gatherings</li>
+        </ul>
+        <div class="event-note">BRYC doesn't over-program the summer — this is intentionally light. The goal is warmth and continuity, not a formal curriculum.</div>
+      </div>
+    </div>
+
+    <!-- ─── LEADING UP TO ORIENTATION ─── -->
+    <div class="phase-label" style="margin-top:48px;">Leading Up to Orientation</div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">Before Orientation</div><div class="event-date-sub">Timing TBD</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--forrest);"></div><div class="event-line"></div></div>
+      <div class="event-card">
+        <div class="event-card-header">
+          <div class="event-title">Data Transfer & Scheduling</div>
+          <div class="event-owners"><span class="owner-tag" style="background:var(--forrest);">Forrest</span><span class="owner-tag" style="background:var(--chasity);">Chasity</span><span class="owner-tag" style="background:var(--marcus);">Marcus</span></div>
+        </div>
+        <ul class="event-bullets">
+          <li>Intake form data and returning Fellow info transferred to the appropriate system (see Matriculation Hub below)</li>
+          <li>Chasity leads campus scheduling — Fellows assigned to nights, campuses, and cohorts</li>
+          <li>Marcus configures and confirms transportation routes based on finalized schedules — routes are set before orientation so they can be announced there</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">Before Orientation</div><div class="event-date-sub">~1–2 weeks out</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--angela);"></div><div class="event-line"></div></div>
+      <div class="event-card">
+        <div class="event-card-header">
+          <div class="event-title">Orientation Invitations Sent</div>
+          <div class="event-owners"><span class="owner-tag" style="background:var(--chasity);">Chasity</span><span class="owner-tag" style="background:var(--angela);">Angela</span></div>
+        </div>
+        <ul class="event-bullets">
+          <li>Date, time, location, and what to bring sent to all Fellows and families</li>
+          <li>Can be segmented by program nights, schools, grades, or new vs. returning</li>
+          <li>Last year: all new families + seniors were mandated to attend</li>
+          <li>Location options: BRYC campuses or FUMC — check school orientation schedules; week school starts (Mon/Tue) may work best</li>
+          <li>Transportation routes will be announced at orientation and shared again afterward</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">Leading Up</div><div class="event-date-sub">All new Fellows</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--chasity);"></div><div class="event-line"></div></div>
+      <div class="event-card">
+        <div class="event-card-header"><div class="event-title">PMs Follow Up with Incoming Fellows</div><div class="event-owners"><span class="owner-tag" style="background:var(--chasity);">PMs</span></div></div>
+        <ul class="event-bullets">
+          <li>Each PM personally reaches out to their incoming cohort before orientation — a real note, not a mass email</li>
+          <li>Confirm they're planning to attend, answer any questions, build the relationship early</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ─── ORIENTATION & AFTER ─── -->
+    <div class="phase-label" style="margin-top:48px;">Orientation & After</div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">Orientation</div><div class="event-date-sub">Late July / Early August</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--green);border-color:var(--green);width:16px;height:16px;"></div><div class="event-line"></div></div>
+      <div class="event-card" style="border-color:var(--green);">
+        <div class="event-card-header">
+          <div class="event-title">Orientation(s)</div>
+          <div class="event-owners"><span class="owner-tag" style="background:var(--chasity);">Chasity</span><span class="owner-tag" style="background:var(--angela);">Angela</span><span class="owner-tag" style="background:var(--marcus);">Marcus</span></div>
+        </div>
+        <ul class="event-bullets">
+          <li>Transportation routes announced at orientation for the first time</li>
+          <li>Program schedules distributed — Fellows know their night, campus, and cohort</li>
+          <li>New Fellows and families get a warm, clear introduction to what BRYC looks and feels like</li>
+          <li>Senior StartUp Week begins for 12th grade Fellows</li>
+        </ul>
+        <div class="event-note">Marcus: facilities, transportation, in-room experience. Angela: warmth, energy, community feel. Chasity: academic expectations, program overview, cohort assignments. <strong>Families who cannot attend orientation</strong> should receive a personal outreach — same-day or next-day — from Angela or the PM to make sure they have everything they need and don't feel left out.</div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">After Orientation</div><div class="event-date-sub">Same week</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--marcus);"></div><div class="event-line"></div></div>
+      <div class="event-card">
+        <div class="event-card-header"><div class="event-title">Transportation Routes Reshared</div><div class="event-owners"><span class="owner-tag" style="background:var(--marcus);">Marcus</span></div></div>
+        <ul class="event-bullets">
+          <li>Routes shared again after orientation via email/text and posted to the Matriculation Hub</li>
+          <li>Families who missed orientation receive this as part of their follow-up outreach</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-date"><div class="event-date-main">First Program Day</div><div class="event-date-sub">+ No-show follow-up</div></div>
+      <div class="event-connector"><div class="event-dot" style="background:var(--chasity);border-color:var(--chasity);width:16px;height:16px;"></div></div>
+      <div class="event-card" style="border-color:var(--chasity);">
+        <div class="event-card-header"><div class="event-title">First Night & No-Show Follow-Up</div><div class="event-owners"><span class="owner-tag" style="background:var(--chasity);">PMs</span><span class="owner-tag" style="background:var(--angela);">Angela</span></div></div>
+        <ul class="event-bullets">
+          <li>PMs follow up with Fellows leading up to the first program day to confirm they're coming</li>
+          <li>Any no-shows on the first night get a personal outreach from their PM — a real check-in, not a form email</li>
+          <li>Pattern continues throughout the year: PMs own follow-up for absences in their cohort</li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- end timeline -->
+
+  <!-- ─── ROLES SUMMARY ─── -->
+  <div style="margin-top:48px;">
+    <div style="font-size:13px;font-weight:700;color:var(--black);margin-bottom:4px;">Matriculation Division of Labor</div>
+    <div style="font-size:13px;color:var(--gray-500);margin-bottom:20px;">Each person owns a distinct lane. They work together — but accountability is clear.</div>
+    <div class="ongoing-grid">
+      <div class="ongoing-card">
+        <div class="ongoing-card-head">
+          <div class="leg-dot" style="background:var(--forrest);width:10px;height:10px;border-radius:50%;"></div>
+          <div class="ongoing-card-title">Forrest — Admissions & Matriculation</div>
+        </div>
+        <ul class="ongoing-bullets">
+          <li>Applications, notifications, and acceptance process</li>
+          <li>Intake and matriculation forms</li>
+          <li>Payment follow-up for over-income families</li>
+          <li>Data organization of new families into BRYC systems</li>
+          <li>Dismissals and record updates throughout the year</li>
+          <li>Handoff to Chasity and Jakia when acceptances are sent</li>
+        </ul>
+      </div>
+      <div class="ongoing-card">
+        <div class="ongoing-card-head">
+          <div class="leg-dot" style="background:var(--chasity);width:10px;height:10px;border-radius:50%;"></div>
+          <div class="ongoing-card-title">Chasity — Scheduling & Program Connection</div>
+        </div>
+        <ul class="ongoing-bullets">
+          <li>Campus and night scheduling for all 8th–11th Fellows</li>
+          <li>Connecting Fellows and families to their PMs</li>
+          <li>IFS codification so every Fellow feels warmth from day one</li>
+          <li>Academic side of the welcome and orientation experience</li>
+          <li>Orientation comms in partnership with Angela</li>
+        </ul>
+      </div>
+      <div class="ongoing-card">
+        <div class="ongoing-card-head">
+          <div class="leg-dot" style="background:var(--angela);width:10px;height:10px;border-radius:50%;"></div>
+          <div class="ongoing-card-title">Angela — Warmth & Community</div>
+        </div>
+        <ul class="ongoing-bullets">
+          <li>Special initiatives that get Fellows hyped about BRYC</li>
+          <li>Community events and invitations that connect new families to the broader BRYC community</li>
+          <li>Making a non-compulsory program feel worth showing up for</li>
+          <li>Orientation energy, engagement, and connection moments</li>
+        </ul>
+      </div>
+      <div class="ongoing-card">
+        <div class="ongoing-card-head">
+          <div class="leg-dot" style="background:var(--marcus);width:10px;height:10px;border-radius:50%;"></div>
+          <div class="ongoing-card-title">Marcus — Transportation & Facilities</div>
+        </div>
+        <ul class="ongoing-bullets">
+          <li>Transportation route configuration once schedules are finalized</li>
+          <li>Campus facilities, setup, and physical readiness</li>
+          <li>In-room experience: games, tech, vending, music production</li>
+          <li>Things that keep Fellows here once they arrive</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MATRICULATION HUB ─── -->
+  <!-- Open questions -->
+  <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:24px 28px;margin-top:40px;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+      <div style="font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#92400e;">⚠ Open Question — To Resolve</div>
+    </div>
+    <div style="font-size:13px;font-weight:600;color:var(--black);margin-bottom:6px;">How do we eliminate the various family/fellow spreadsheets?</div>
+    <div style="font-size:13px;color:var(--gray-600);line-height:1.65;margin-bottom:14px;">
+      Right now there are multiple spreadsheets holding overlapping data. This needs a unified answer before matriculation begins in earnest. Key stakeholders: <strong>Josh, Elin, Forrest, Jakia, and Myeisha</strong> — all are working with this information in some form.
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:white;border-radius:6px;border:1px solid #fde68a;">
+        <div style="font-size:11px;font-weight:700;color:#92400e;background:#fef9c3;border-radius:3px;padding:2px 6px;white-space:nowrap;margin-top:1px;">1</div>
+        <div style="font-size:13px;color:var(--gray-600);">PY26 Fellowship Info with returning families</div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:white;border-radius:6px;border:1px solid #fde68a;">
+        <div style="font-size:11px;font-weight:700;color:#92400e;background:#fef9c3;border-radius:3px;padding:2px 6px;white-space:nowrap;margin-top:1px;">2</div>
+        <div style="font-size:13px;color:var(--gray-600);">New Senior Fellows — created after April 30 deadline</div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:white;border-radius:6px;border:1px solid #fde68a;">
+        <div style="font-size:11px;font-weight:700;color:#92400e;background:#fef9c3;border-radius:3px;padding:2px 6px;white-space:nowrap;margin-top:1px;">3</div>
+        <div style="font-size:13px;color:var(--gray-600);">New 8th–11th Fellows — created after June 1 deadline</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:#92400e;font-style:italic;">The new all-in-one app may resolve this — but the transition plan needs to be explicit before this cycle starts.</div>
+  </div>
+
+  <div class="hub-section">
+    <div class="hub-title">Matriculation Hub</div>
+    <div class="hub-sub">A centralized resource for Fellows, families, and staff — TBD whether this builds on Forrest's existing system or lives in the new app.</div>
+    <div class="hub-grid">
+      <div class="hub-item">
+        <div class="hub-item-title">Schedule Look-Up</div>
+        <div class="hub-item-text">Fellows and families can look up their assigned program night, campus, and cohort — same model as last year. Should auto-update from the scheduling source of truth.</div>
+      </div>
+      <div class="hub-item">
+        <div class="hub-item-title">Transportation Routes</div>
+        <div class="hub-item-text">Published routes with pickup/dropoff times and locations. Marcus configures; Fellows and families can reference on their own.</div>
+      </div>
+      <div class="hub-item">
+        <div class="hub-item-title">Orientation Notes & Info</div>
+        <div class="hub-item-text">Date, location, what to bring, what to expect. Can be segmented for new vs. returning Fellows. Should live here so families can find it without having to ask.</div>
+      </div>
+      <div class="hub-item">
+        <div class="hub-item-title">Forms & Next Steps</div>
+        <div class="hub-item-text">Intake and matriculation forms for new Fellows. Easy reference for families who missed something or need to resubmit. Link to Forrest for questions.</div>
+      </div>
+    </div>
+    <div style="margin-top:16px;font-size:12px;color:var(--gray-500);font-style:italic;">
+      Next step: Check what Forrest already has built — if a hub or similar system exists, build on it rather than starting from scratch. This should eventually integrate with the new all-in-one app.
+    </div>
+  </div>
+
+</div>
+</body>
+<!-- Edit bar -->
+<div id="edit-bar" style="position:fixed;bottom:0;left:0;right:0;background:var(--black);border-top:1px solid #1f2937;padding:10px 24px;display:flex;align-items:center;gap:12px;z-index:1000;font-family:'proxima-nova','DM Sans',sans-serif;">
+  <span style="font-size:12px;color:var(--gray-400);">Click any bullet to edit · Changes save for everyone</span>
+  <div style="flex:1;"></div>
+  <span id="edit-status" style="font-size:12px;color:var(--gray-400);"></span>
+</div>
+
+<!-- Edit modal -->
+<div id="edit-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:2000;align-items:center;justify-content:center;">
+  <div style="background:white;border-radius:12px;padding:28px 32px;max-width:560px;width:90%;box-shadow:0 24px 64px rgba(0,0,0,.3);">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:8px;">Editing bullet</div>
+    <div id="edit-original" style="font-size:12px;color:var(--gray-400);margin-bottom:14px;padding:8px 12px;background:var(--gray-50);border-radius:5px;line-height:1.5;"></div>
+    <textarea id="edit-text" style="width:100%;height:80px;font-family:'proxima-nova','DM Sans',sans-serif;font-size:14px;color:var(--black);border:1px solid var(--gray-200);border-radius:6px;padding:10px 12px;resize:vertical;outline:none;" placeholder="Edit text here..."></textarea>
+    <div style="margin-top:10px;">
+      <label style="font-size:12px;font-weight:600;color:var(--gray-600);display:block;margin-bottom:4px;">Your initials <span style="color:var(--gray-400);font-weight:400;">(required)</span></label>
+      <input id="edit-initials" type="text" maxlength="6" style="width:80px;font-family:'proxima-nova','DM Sans',sans-serif;font-size:14px;border:1px solid var(--gray-200);border-radius:6px;padding:7px 10px;outline:none;text-transform:uppercase;" placeholder="JH">
+    </div>
+    <div style="display:flex;gap:10px;margin-top:18px;">
+      <button onclick="saveEdit()" style="background:var(--green);color:white;border:none;border-radius:6px;padding:10px 20px;font-family:'proxima-nova','DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;">Save for everyone</button>
+      <button onclick="closeModal()" style="background:var(--gray-100);color:var(--gray-600);border:none;border-radius:6px;padding:10px 20px;font-family:'proxima-nova','DM Sans',sans-serif;font-size:13px;cursor:pointer;">Cancel</button>
+    </div>
+    <div id="edit-error" style="margin-top:8px;font-size:12px;color:#dc2626;display:none;"></div>
+  </div>
+</div>
+
+<style>
+/* Editable bullets */
+.event-bullets li { cursor:pointer; transition:background .15s; border-radius:4px; }
+.event-bullets li:hover { background:var(--gray-50); }
+.event-bullets li:hover::after { content:' ✎'; color:var(--gray-400); font-size:10px; }
+.edit-badge { display:inline-block; font-size:9px; font-weight:700; color:var(--gold); background:var(--gold-light); border:1px solid var(--gold); border-radius:3px; padding:1px 4px; margin-left:6px; vertical-align:middle; }
+body { padding-bottom: 52px; }
+</style>
+
+<script>
+// ── Config ──────────────────────────────────────────────────
+// REPLACE THIS with your deployed Google Apps Script URL
+const SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+
+let currentLi = null;
+let edits = {}; // { bulletId: { text, initials, timestamp } }
+
+// ── Give every bullet a stable ID ───────────────────────────
+document.querySelectorAll('.event-bullets li').forEach((li, i) => {
+  li.dataset.bid = 'b' + i;
+  li.title = 'Click to suggest an edit';
+  li.addEventListener('click', () => openModal(li));
+});
+
+// ── Load saved edits from the Sheet ─────────────────────────
+async function loadEdits() {
+  if (SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') return;
+  try {
+    const res = await fetch(SCRIPT_URL + '?action=load');
+    const data = await res.json();
+    if (data.edits) {
+      edits = data.edits;
+      applyEdits();
+    }
+  } catch(e) { /* silent fail - still usable */ }
+}
+
+function applyEdits() {
+  document.querySelectorAll('.event-bullets li').forEach(li => {
+    const bid = li.dataset.bid;
+    if (edits[bid]) {
+      const e = edits[bid];
+      // strip any existing badge
+      const badge = li.querySelector('.edit-badge');
+      if (badge) badge.remove();
+      // set text + badge
+      li.childNodes[0].textContent = e.text;
+      const b = document.createElement('span');
+      b.className = 'edit-badge';
+      b.textContent = e.initials;
+      li.appendChild(b);
+    }
+  });
+}
+
+// ── Modal ────────────────────────────────────────────────────
+function openModal(li) {
+  currentLi = li;
+  const bid = li.dataset.bid;
+  // get plain text (strip badge if present)
+  const badge = li.querySelector('.edit-badge');
+  const originalText = badge
+    ? li.textContent.replace(badge.textContent, '').trim()
+    : li.textContent.trim();
+
+  document.getElementById('edit-original').textContent = 'Original: ' + originalText;
+  document.getElementById('edit-text').value = edits[bid] ? edits[bid].text : originalText;
+  document.getElementById('edit-initials').value = edits[bid] ? edits[bid].initials : '';
+  document.getElementById('edit-error').style.display = 'none';
+  document.getElementById('edit-modal').style.display = 'flex';
+  setTimeout(() => document.getElementById('edit-text').focus(), 50);
+}
+
+function closeModal() {
+  document.getElementById('edit-modal').style.display = 'none';
+  currentLi = null;
+}
+
+async function saveEdit() {
+  const text = document.getElementById('edit-text').value.trim();
+  const initials = document.getElementById('edit-initials').value.trim().toUpperCase();
+  const errEl = document.getElementById('edit-error');
+
+  if (!text) { errEl.textContent = 'Please enter some text.'; errEl.style.display = 'block'; return; }
+  if (!initials) { errEl.textContent = 'Please enter your initials.'; errEl.style.display = 'block'; return; }
+
+  const bid = currentLi.dataset.bid;
+  const payload = { bid, text, initials, timestamp: new Date().toISOString() };
+
+  // Optimistic update
+  edits[bid] = payload;
+  applyEdits();
+  closeModal();
+
+  setStatus('Saving…');
+
+  if (SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxXBle_pbQNumoJGchmAwGtlwj1TbBhJhpwzkBLqc48hePX2POcHY0daKESulLL98ns/exec') {
+    setStatus('✓ Edit saved locally (set up backend to sync across devices)');
+    return;
+  }
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'save', ...payload })
+    });
+    setStatus('✓ Saved — visible to everyone');
+  } catch(e) {
+    setStatus('⚠ Saved locally · sync failed');
+  }
+}
+
+function setStatus(msg) {
+  const el = document.getElementById('edit-status');
+  el.textContent = msg;
+  setTimeout(() => el.textContent = '', 4000);
+}
+
+// Close modal on backdrop click
+document.getElementById('edit-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// Load on page start
+loadEdits();
+</script>
+</body>
